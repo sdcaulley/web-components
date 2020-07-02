@@ -7,9 +7,7 @@
       class PhotoCarousel extends HTMLElement {
         connectedCallback() {
           this._photoIndex = 0;
-          console.log('this._photoIndex: ', this._photoIndex);
           this._photos = this.getAttribute('photos').split(',');
-          console.log('photos: ', this._photos);
           this.innerHTML = '<h2>'+ this.getAttribute('title') + '</h2>' +
           '<h4>by '+ this.getAttribute('author') + '</h4>' +
           '<div class="image-container"></div>' +
@@ -64,6 +62,7 @@
         border-color: black;
         border-width: 1px;
         border-style: solid;
+        position: relative;
       }
 
       wcia-photo-carousel h2, h4 {
@@ -80,6 +79,25 @@
         background-repeat: no-repeat;
         background-position: 50%;
       }
+
+      wcia-photo-carousel button {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        font-size: 48px;
+        color: white;
+        position: absolute;
+        top: 50%;
+      }
+
+      wcia-photo-carousel button.back {
+        left: 10px;
+      }
+
+      wcia-photo-carousel button.forward {
+        right: 10px;
+      }
+
     </style>
   </head>
   <body>
